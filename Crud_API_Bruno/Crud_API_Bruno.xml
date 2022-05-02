@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Crud_API_Bruno</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:Crud_API_Bruno.Application.Controllers.AuthController.Get" -->
+        <member name="M:Crud_API_Bruno.Application.Controllers.AuthController.Post(Crud_API_Bruno.Application.ViewModels.RegisterAction)">
+            <summary>
+            Método responsável por cadastrar um usuário 
+            </summary>
+            <param name="E-mail-mail">E-mail</param>
+            <param name="Nome">Nome</param>
+            <param name="Senha">Senha</param>
+            <param name="Role">Tipo de acesso</param>
+            <returns></returns>
+            <response code="201">Retorna os dados do usuario cadastrado</response>
+            <response code="400">Retorna algum tipo de erro ao tentar cadastrar um usuario</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.AuthController.Post(Crud_API_Bruno.Application.ViewModels.SignInAction)">
+             <summary>
+             Método responsável por fazer login do usuário e retornar 
+             </summary>
+             <remarks>
+             Login com email e password:
+            
+                 POST /api/v1/usuarios/login
+                 {
+                    "email": "teste@teste.com",
+                    "password": "senhateste!",
+                 }
+                   
+             Exemplo de resposta:
+            
+                 {
+                     "accessToken": "JWT_TOKEN",
+                     "tokenType": "Bearer",
+                     "expiresAt": "2019-12-16T15:21:20.568078Z",
+                 }
+            
+             </remarks>
+             <returns></returns>
+             <response code="201">Retorna usuário logado com sucesso com o AccessToken e RefreshToken</response>
+             <response code="400">Retorna erro ao tentar logar o usuário</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.CategoriaController.FindAll">
+            <summary>
+            Método responsável por buscar todas as Categorias
+            </summary>        
+            <returns></returns>
+            <response code="200">Retorna uma lista de categorias</response>
+            <response code="400">Retorna algum erro ao tentar obter uma lista de categorias</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.CategoriaController.FindOne(System.Int32)">
+            <summary>
+            Método responsável por retornar uma categoia pelo id 
+            </summary>
+            <param name="CategoriaId">Identificador da categoria</param>    
+            <returns></returns>
+            <response code="200">Retorna uma categoia</response>
+            <response code="400">Retorna algum erro ao tentar obter um categoia</response>
+            <response code="404">Retorna categoia não encontrado</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.CategoriaController.Update(System.Int32,Crud_API_Bruno.Domain.Products.Categoria)">
+            <summary>
+            Método responsável por atualizar os dados de uma categoria
+            </summary>
+            <param name="CategoriaId">Identificador da categoria</param>
+            <returns>Dados da categoria</returns>
+            <response code="200">Retorna os dados da categoria</response>
+            <response code="404">Retorna categoria não encontrado</response>
+            <response code="400">Retorna erro ao tentar retornar os dados da categoria</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.CategoriaController.New(Crud_API_Bruno.Domain.Products.Categoria)">
+            <summary>
+            Método responsável por cadastrar uma categoria no banco de dados
+            /// </summary>
+            <param name="command"></param>
+            <returns></returns>
+            <response code="201">Retorna os dados da categoria cadastrada</response>
+            <response code="400">Retorna algum tipo de erro ao tentar cadastrar uma categoria</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.CategoriaController.Delete(System.Int32)">
+            <summary>
+            Método responsável por deletar uma categoria
+            </summary>
+            <param name="CategoriaId">Identificador da categoria</param>
+            <returns></returns>
+            <response code="200">categoria deletada com sucesso</response>
+            <response code="400">Retorna algum erro ao tentar deletar a categoria</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoController.FindAll">
+            <summary>
+            Método responsável por buscar todos os produtos
+            </summary>        
+            <returns></returns>
+            <response code="200">Retorna uma lista de produtos</response>
+            <response code="400">Retorna algum erro ao tentar obter uma lista de produtos</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoController.FindOne(System.Int32)">
+            <summary>
+            Método responsável por buscar um produto pelo id 
+            </summary>
+            <param name="ProdutoId">Identificador do produto</param>    
+            <returns></returns>
+            <response code="200">Retorna uma produto</response>
+            <response code="400">Retorna algum erro ao tentar obter um produto</response>
+            <response code="404">Retorna produtonão encontrado</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoController.Update(System.Int32,Crud_API_Bruno.Domain.Products.Produto)">
+            <summary>
+            Método responsável por atualizar os dados de um produto
+            </summary>
+            <param name="ProdutoId">Identificador do produto</param>
+            <returns>Dados do produto</returns>
+            <response code="200">Retorna os dados do produto</response>
+            <response code="404">Retorna produto não encontrado</response>
+            <response code="400">Retorna erro ao tentar retornar os dados do produto</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoController.New(Crud_API_Bruno.Domain.Products.Produto)">
+             <summary>
+             Método responsável por cadastrar um produto no banco de dados
+             </summary>
+             Exemplo
+             {
+              "produtoId": 0,
+              "nome": "string",
+              "descricao": "string",
+              "preco": 0,
+              "codigoBarra": 0,
+              "data": "2022-05-01T19:56:54.868Z",
+              "altura": 0,
+              "largura": 0,
+              "comprimento": 0,
+              "produtoImagems": {
+                "produtoImagemId": 0,
+                "produtoId": 0,
+                "caminhoImagem": "string"
+              },
+              "produtosCategorias": [
+                {
+                  "produtosCategoriaId": 0,
+                  "categoriaId": 0,
+                  "produtoId": 0,
+                  "produto": "string"
+                }
+              ]
+            }
+             <returns></returns>
+             <response code="201">Retorna os dados da produto cadastrada</response>
+             <response code="400">Retorna algum tipo de erro ao tentar cadastrar um produto</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoController.Delete(System.Int32)">
+            <summary>
+            Método responsável por deletar uma categoria
+            </summary>
+            <param name="ProdutoId">Identificador do produto</param>
+            <returns></returns>
+            <response code="200">categoria deletada com sucesso</response>
+            <response code="400">Retorna algum erro ao tentar deletar a categoria</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoImagemController.Upload(Crud_API_Bruno.Application.ViewModels.ProdutoImagemVM)">
+             <summary>
+             Método responsável por cadastrar uma imagem de produto no banco de dados
+             </summary>
+            Exemplo
+            {               
+              "produtoId": 0,
+               "CaminhoImagem=string 
+                }
+             <returns></returns>
+             <response code="201">Retorna a imagem cadastrada do produto</response>
+             <response code="400">Retorna algum tipo de erro ao tentar inserir uma imagem</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoImagemController.Get(System.Int32)">
+            <summary>
+            Método responsável por retornar uma imagem pelo id de produto
+            </summary>
+            <param name="ProdutoId"></param>        
+            <returns>imagem</returns>
+            <response code="200">Retorna  imagem</response>
+            <response code="400">Retorna algum erro ao tentar obter a imagem</response>
+            <response code="404">Retorna imagem não encontrada</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoImagemController.Delete(System.Int32)">
+            <summary>
+            Método responsável por deletar uma imagem
+            </summary>
+            <param name="ProdutoId">Identificador do produto</param>
+            <returns></returns>
+            <response code="200">imagem deletada com sucesso</response>
+            <response code="400">Retorna algum erro ao tentar deletar a imagem</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutoImagemController.Update(Crud_API_Bruno.Application.ViewModels.ProdutoImagemVM)">
+            <summary>
+            Método responsável por atualizar a foto de um produto
+            </summary>
+            <param name="ProdutoId">Identificador do produto</param>
+            <returns>Dados da foto</returns>
+            <response code="200">Retorna os dados da foto</response>
+            <response code="404">Retorna foto não encontrada</response>
+            <response code="400">Retorna erro ao tentar retornar os dados da foto</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutosCategoriasController.FindAll">
+            <summary>
+            Método responsável por buscar todas os produtoscategorias
+            </summary>        
+            <returns></returns>
+            <response code="200">Retorna uma lista de produtoscategorias</response>
+            <response code="400">Retorna algum erro ao tentar obter uma lista de produtoscategorias</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutosCategoriasController.FindOne(System.Int32)">
+            <summary>
+            Método responsável por retornar um produtoscategorias pelo id 
+            </summary>
+            <param name="ProdutoCategoriaId"></param>        
+            <returns>Dados do produtoscategorias</returns>
+            <response code="200">Retorna um produtoscategorias</response>
+            <response code="400">Retorna algum erro ao tentar obter um produtoscategorias</response>
+            <response code="404">Retorna produtoscategorias não encontrado</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutosCategoriasController.Update(System.Int32,Crud_API_Bruno.Domain.Products.ProdutosCategorias)">
+            <summary>
+            Método responsável por atualizar os dados de um produtoscategorias
+            </summary>
+            <returns>Dados do produtoscategorias</returns>
+            <response code="200">Retorna os dados do produtoscategorias</response>
+            <response code="404">Retorna produtoscategorias não encontrado</response>
+            <response code="400">Retorna erro ao tentar retornar os dados do produtoscategorias</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutosCategoriasController.New(Crud_API_Bruno.Domain.Products.ProdutosCategorias)">
+             <summary>
+             Método responsável por cadastrar um produtoscategorias no banco de dados
+             </summary>
+            Exemplo
+            {
+              "produtosCategoriaId": 0,
+              "categoriaId": 0,
+              "produtoId": 0,
+              "produto": {
+                "produtoId": 0,
+                "nome": "string",
+                "descricao": "string",
+                "preco": 0,
+                "codigoBarra": 0,
+                "data": "2022-05-01T20:07:39.930Z",
+                "altura": 0,
+                "largura": 0,
+                "comprimento": 0
+                }
+             <returns></returns>
+             <response code="201">Retorna os dados do produtoscategorias cadastrada</response>
+             <response code="400">Retorna algum tipo de erro ao tentar cadastrar um produtoscategorias</response>
+        </member>
+        <member name="M:Crud_API_Bruno.Application.Controllers.ProdutosCategoriasController.Delete(System.Int32)">
+            <summary>
+            Método responsável por deletar uma produtoscategorias
+            </summary>
+            <param name="ProdutoCategoriaId">Identificador da produtoscategorias</param>
+            <returns></returns>
+            <response code="200">produtoscategorias deletado com sucesso</response>
+            <response code="400">Retorna algum erro ao tentar deletar o produtoscategorias</response>
+        </member>
+    </members>
+</doc>
