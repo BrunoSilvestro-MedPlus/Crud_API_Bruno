@@ -23,6 +23,8 @@ namespace Crud_API_Bruno.Domain.Products
         public double? Altura { get; set; }
         public double? Largura { get; set; }
         public double? Comprimento { get; set; }
+
+        public ProdutoImagem ProdutoImagem { get; set; }
         public ICollection<ProdutosCategorias> ProdutosCategorias { get; set; }
     }
 
